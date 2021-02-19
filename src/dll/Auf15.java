@@ -6,10 +6,14 @@ public class Auf15<T> {
             Element<T> ref1 = this.first;
             Element<T> ref2 = param.first;
             while(ref1 != null && ref2 != null) {
-                if(ref1.content.equals(ref2.content)) {
+                if(ref1.content == null && ref2.content == null
+                        || ref1.content != null && ref1.content.equals(ref2.content)) {
                     return false;
                 }
+                ref1 = ref1.succ;
+                ref2 = ref2.succ;
             }
+            return true;
         }
         return true;
     }
@@ -52,7 +56,7 @@ public class Auf15<T> {
         Element current = first;
         while ( current != null )
         {
-            System.out.print( current.getContent().toString() );
+            System.out.print( current.getContent() == null ? null : current.getContent().toString() );
             if ( current != last )
             {
                 System.out.print(", ");

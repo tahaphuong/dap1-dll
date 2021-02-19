@@ -7,8 +7,9 @@ public class Auf20<T> {
             while (c1 != null) {
                 Element c2 = list.first;
                 while (c2 != null) {
-                    if(c1.content.equals(c2.content)) {
-                        return true;
+                    if(c1.content == null && c2.content == null
+                            || c1.content != null && c1.content.equals(c2.content)) {
+                        return false;
                     }
                     c2 = c2.succ;
                 }
@@ -57,7 +58,7 @@ public class Auf20<T> {
         Element current = first;
         while ( current != null )
         {
-            System.out.print( current.getContent().toString() );
+            System.out.print( current.getContent() == null ? null : current.getContent().toString() );
             if ( current != last )
             {
                 System.out.print(", ");

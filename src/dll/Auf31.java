@@ -2,14 +2,17 @@ package dll;
 
 public class Auf31<T> {
     public int equalContent( Auf31<T> other ) {
-        if(size > 0) {
+        if(this.size > 0 && other.size > 0) {
             Element ref1 = first;
             Element ref2 = other.first;
             int count = 0;
-            if(ref1 != null && ref2 != null) {
-                if(ref1.content.equals(ref2.content)) {
+            while(ref1 != null && ref2 != null) {
+                if(ref1.content == null && ref2.content == null ||
+                        ref1.content != null && ref1.content.equals(ref2.content)) {
                     count++;
                 }
+                ref1 = ref1.succ;
+                ref2 = ref2.succ;
             }
             return count;
         } else {
@@ -57,7 +60,7 @@ public class Auf31<T> {
         Element current = first;
         while ( current != null )
         {
-            System.out.print( current.getContent().toString() );
+            System.out.print( current.getContent() == null ? null : current.getContent().toString() );
             if ( current != last )
             {
                 System.out.print(", ");

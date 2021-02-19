@@ -6,19 +6,14 @@ public class Auf9<T>
 
         for(T el : test) {
             Element current = first;
-            boolean check = false;
             while(current != null) {
                 if(el.equals(current.content)) {
-                    check = true;
-                    break;
+                    return true;
                 }
                 current = current.succ;
             }
-            if(!check) {
-                return false;
-            }
         }
-        return true;
+        return false;
     }
     private Element first, last;
     private int size;
@@ -59,7 +54,7 @@ public class Auf9<T>
         Element current = first;
         while ( current != null )
         {
-            System.out.print( current.getContent().toString() );
+            System.out.print( current.getContent() == null ? null : current.getContent().toString() );
             if ( current != last )
             {
                 System.out.print(", ");

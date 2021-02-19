@@ -15,8 +15,11 @@ public class Auf3<T>
             } else {
                 indices[i] = -1;
             }
+            current = current.succ;
         }
         int[] result = new int[count];
+
+
         for(int j=indices.length-1; j>=0; j--) {
             if(indices[j] >= 0) {
                 count -= 1;
@@ -64,7 +67,7 @@ public class Auf3<T>
         Element current = first;
         while ( current != null )
         {
-            System.out.print( current.getContent().toString() );
+            System.out.print( current.getContent() == null ? null : current.getContent().toString() );
             if ( current != last )
             {
                 System.out.print(", ");

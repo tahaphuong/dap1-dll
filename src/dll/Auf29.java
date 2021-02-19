@@ -5,11 +5,14 @@ public class Auf29<T> {
         if(size > 2) {
             Element current = last.pred;
             while (current != first) {
-                if(current.content.equals(content)) {
+                Element predOfCurrent = current.pred;
+                if(content == null && current.content == null ||
+                        content != null && content.equals(current.content)) {
                     current.pred.connectAsSucc(current.succ);
                     size--;
+                    break;
                 }
-                current = current.pred;
+                current = predOfCurrent;
             }
         }
     }
@@ -53,7 +56,7 @@ public class Auf29<T> {
         Element current = first;
         while ( current != null )
         {
-            System.out.print( current.getContent().toString() );
+            System.out.print( current.getContent() == null ? null : current.getContent().toString() );
             if ( current != last )
             {
                 System.out.print(", ");

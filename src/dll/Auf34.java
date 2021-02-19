@@ -18,19 +18,6 @@ public class Auf34<T> {
                         current = predOfCurrent.succ;
                     }
 
-//                    Element predOfCurrent = current.getPred();
-//                    if ( current.getSucc() != null )
-//                    {
-//                        predOfCurrent.connectAsSucc( current.getSucc() );
-//                        current = predOfCurrent.getSucc();
-//                    }
-//                    else
-//                    {
-//                        last = current.getPred();
-//                        current.disconnectPred();
-//                        current = null;
-//                    }
-//                    size--;
                 }
                 else {
                     current = current.succ;
@@ -79,7 +66,7 @@ public class Auf34<T> {
         Element current = first;
         while ( current != null )
         {
-            System.out.print( current.getContent().toString() );
+            System.out.print( current.getContent() == null ? null : current.getContent().toString() );
             if ( current != last )
             {
                 System.out.print(", ");

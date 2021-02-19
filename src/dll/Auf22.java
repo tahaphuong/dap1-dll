@@ -4,7 +4,8 @@ public class Auf22<T> {
     public void deleteNext( T content ) {
         Element current = first;
         while (current != null) {
-            if(current.content.equals(content)) {
+            if(content==null && current.content == null ||
+                    content != null && content.equals(current.content)) {
                 if (current.succ != null) {
                     current.connectAsSucc(current.succ.succ);
                     size--;
@@ -57,7 +58,7 @@ public class Auf22<T> {
         Element current = first;
         while ( current != null )
         {
-            System.out.print( current.getContent().toString() );
+            System.out.print( current.getContent() == null ? null : current.getContent().toString() );
             if ( current != last )
             {
                 System.out.print(", ");

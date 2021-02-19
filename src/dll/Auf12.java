@@ -7,7 +7,7 @@ public class Auf12<T>
             Element current = first;
             while (current != null) {
                 for(T el : test) {
-                    if(current.content.equals(el))
+                    if(el.equals(current.content))
                         return false;
                 }
                 current = current.succ;
@@ -56,7 +56,7 @@ public class Auf12<T>
         Element current = first;
         while ( current != null )
         {
-            System.out.print( current.getContent().toString() );
+            System.out.print( current.getContent() == null ? null : current.getContent().toString() );
             if ( current != last )
             {
                 System.out.print(", ");

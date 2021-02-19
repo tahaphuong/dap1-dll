@@ -7,16 +7,17 @@ public class Auf25<T> {
             Element ref1 = first;
             Element ref2 = list.first;
             while (ref1 != null && ref2 != null) {
-                if(!ref1.content.equals(ref2.content)) {
-                    break;
-                }
-                Element el = new Element(ref1.content);
-                size++;
-                if(dll.isEmpty()) {
-                    dll.first = dll.last = el;
-                } else {
-                    dll.first.connectAsSucc(el);
-                    dll.last = el;
+                if(ref1.content == null && ref2.content == null ||
+                        ref1.content != null && ref1.content.equals(ref2.content)) {
+                    Element el = new Element(ref1.content);
+
+                    if(dll.isEmpty()) {
+                        dll.first = dll.last = el;
+                    } else {
+                        dll.last.connectAsSucc(el);
+                        dll.last = el;
+                    }
+                    dll.size += 1;
                 }
                 ref1 = ref1.succ;
                 ref2 = ref2.succ;
@@ -64,7 +65,7 @@ public class Auf25<T> {
         Element current = first;
         while ( current != null )
         {
-            System.out.print( current.getContent().toString() );
+            System.out.print( current.getContent() == null ? null : current.getContent().toString() );
             if ( current != last )
             {
                 System.out.print(", ");

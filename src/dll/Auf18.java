@@ -4,7 +4,7 @@ public class Auf18<T> {
     public Auf18( T p1, T p2 ) {
         first = new Element(p1);
         last = new Element(p2);
-        first.connectAsSucc(last);
+        first.connectAsSucc(last );
         size = 2;
     }
 
@@ -47,7 +47,7 @@ public class Auf18<T> {
         Element current = first;
         while ( current != null )
         {
-            System.out.print( current.getContent().toString() );
+            System.out.print( current.getContent() == null ? null : current.getContent().toString() );
             if ( current != last )
             {
                 System.out.print(", ");

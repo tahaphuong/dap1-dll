@@ -11,8 +11,10 @@ public class Auf27<T> {
                 if(ref1.content.equals(ref2.content)) {
                     count += 1;
                 } else {
-                    break;
+                    return count;
                 }
+                ref1 = ref1.succ;
+                ref2 = ref2.succ;
             }
             return count;
         } else {
@@ -59,7 +61,7 @@ public class Auf27<T> {
         Element current = first;
         while ( current != null )
         {
-            System.out.print( current.getContent().toString() );
+            System.out.print( current.getContent() == null ? null : current.getContent().toString() );
             if ( current != last )
             {
                 System.out.print(", ");

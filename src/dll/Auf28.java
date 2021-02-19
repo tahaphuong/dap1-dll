@@ -5,11 +5,12 @@ public class Auf28<T> {
         Element<T> up = first;
         Element<T> down = last;
         for (int i = 0; i<size/2; i++) {
-            if(up.content.equals(down.content)) {
+            if(up.content == null && down.content == null ||
+                    up.content != null && up.content.equals(down.content)) {
                 return false;
             }
             up = up.succ;
-            down = down.succ;
+            down = down.pred;
         }
         return true;
     }
@@ -53,7 +54,7 @@ public class Auf28<T> {
         Element current = first;
         while ( current != null )
         {
-            System.out.print( current.getContent().toString() );
+            System.out.print( current.getContent() == null ? null : current.getContent().toString() );
             if ( current != last )
             {
                 System.out.print(", ");

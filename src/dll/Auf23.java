@@ -2,7 +2,7 @@ package dll;
 
 public class Auf23<T> {
     public Auf23<T> singleton( int n ) {
-        if (n < 0 || n >= size) {
+        if (n >= 0 && n < size) {
             int count = 0;
             Element current = first;
             while (count < n) {
@@ -59,7 +59,7 @@ public class Auf23<T> {
         Element current = first;
         while ( current != null )
         {
-            System.out.print( current.getContent().toString() );
+            System.out.print( current.getContent() == null ? null : current.getContent().toString() );
             if ( current != last )
             {
                 System.out.print(", ");

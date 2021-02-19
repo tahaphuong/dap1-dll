@@ -3,7 +3,7 @@ package dll;
 public class Auf19<T> {
     public void deleteHead( int n ) {
         if(n > 0) {
-            if(n <= size) {
+            if(n >= size) {
                 first = last = null;
                 size = 0;
             } else {
@@ -59,7 +59,7 @@ public class Auf19<T> {
         Element current = first;
         while ( current != null )
         {
-            System.out.print( current.getContent().toString() );
+            System.out.print( current.getContent() == null ? null : current.getContent().toString() );
             if ( current != last )
             {
                 System.out.print(", ");

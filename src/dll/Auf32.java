@@ -1,12 +1,12 @@
 package dll;
 
 public class Auf32<T> {
-    public int substitute( T p1, T p2 ) {
+    public int substitute( T p1, T p2 ) { // angenommen p1, p2 nicht null sind
         Element current = first;
         int count = 0;
         while (current != null) {
-            if (current.content.equals(p1)
-                    && (current.succ == null || !current.succ.content.equals(p2))) {
+            if (p1.equals(current.content)
+                    && (current.succ == null || !p2.equals(current.succ.content))) {
                 current.setContent(p2);
                 count += 1;
             }
@@ -55,7 +55,7 @@ public class Auf32<T> {
         Element current = first;
         while ( current != null )
         {
-            System.out.print( current.getContent().toString() );
+            System.out.print( current.getContent() == null ? null : current.getContent().toString() );
             if ( current != last )
             {
                 System.out.print(", ");

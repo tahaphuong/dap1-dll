@@ -11,8 +11,12 @@ public class Auf5<T>
                 index += 1;
             }
             if(into.size() > 0) {
+                if(current.pred == null) {
+                    first = into.first;
+                }
                 into.first.connectAsPred(current.getPred());
                 into.last.connectAsSucc(current);
+
             }
         }
     }
@@ -55,7 +59,7 @@ public class Auf5<T>
         Element current = first;
         while ( current != null )
         {
-            System.out.print( current.getContent().toString() );
+            System.out.print( current.getContent() == null ? null : current.getContent().toString() );
             if ( current != last )
             {
                 System.out.print(", ");

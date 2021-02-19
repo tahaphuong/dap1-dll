@@ -3,7 +3,7 @@ package dll;
 public class Auf6<T>
 {
     public boolean allEqual( Auf6<T> d ) { // angenommen d != null
-        if(d!= null && size() != d.size()) {
+        if(d!= null && size() == d.size()) {
             Element c1 = first;
             Element c2 = d.first;
             while ((c1 != null && c2 != null) && c1.content.equals(c2.content)) {
@@ -54,7 +54,7 @@ public class Auf6<T>
         Element current = first;
         while ( current != null )
         {
-            System.out.print( current.getContent().toString() );
+            System.out.print( current.getContent() == null ? null : current.getContent().toString() );
             if ( current != last )
             {
                 System.out.print(", ");

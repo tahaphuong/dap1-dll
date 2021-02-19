@@ -3,15 +3,16 @@ package dll;
 public class Auf16<T> {
     public void pack() {
         Element<T> current = first;
-        while (current != null) {
+        while (current.succ != null) {
             if((current.content == null && current.succ.content == null) ||
                     current.content != null && current.content.equals(current.succ.content)) {
                 current.connectAsSucc(current.succ.succ);
                 if(current.succ == null) {
                     last = current;
                 }
+            } else {
+                current = current.succ;
             }
-            current = current.succ;
         }
     }
     private Element first, last;
@@ -53,7 +54,7 @@ public class Auf16<T> {
         Element current = first;
         while ( current != null )
         {
-            System.out.print( current.getContent().toString() );
+            System.out.print( current.getContent() == null ? null : current.getContent().toString() );
             if ( current != last )
             {
                 System.out.print(", ");

@@ -4,20 +4,18 @@ public class Auf17<T> {
     public Auf17( Auf17<T>[] lists ) {
         this();
         if (lists != null) {
-            for (Auf17<T> cand : lists) {
-                Element current = cand.first;
-                while (current != null) {
-                    if(this.isEmpty()) {
-                        first = last = current;
-                    } else {
-                        first.connectAsSucc(current);
-                        last = current;
+            for (int i=0; i<lists.length; i++) {
+                Auf17<T> current = lists[i];
+                size += lists[i].size;
+                if(first == null && last == null) {
+                    first = lists[i].first;
+                    last = lists[i].last;
+                } else {
+                    last.connectAsSucc(lists[i].first);
+                    if(lists[i].last != null) {
+                        last = lists[i].last;
                     }
-                    size += 1;
-                    current = current.succ;
                 }
-                cand.first = cand.last = null;
-                cand.size = 0;
             }
         }
     }
@@ -60,7 +58,7 @@ public class Auf17<T> {
         Element current = first;
         while ( current != null )
         {
-            System.out.print( current.getContent().toString() );
+            System.out.print( current.getContent() == null ? null : current.getContent().toString() );
             if ( current != last )
             {
                 System.out.print(", ");

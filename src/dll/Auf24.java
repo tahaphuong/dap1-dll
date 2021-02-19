@@ -8,7 +8,8 @@ public class Auf24<T> {
         Element current = first;
         int count = 0;
         while (current != null) {
-            if(current.content.equals(obj)) {
+            if(obj == null && current.content == null
+                    || obj != null && obj.equals(current.content)) {
                 current.disconnectPred();
                 first = current;
                 size -= count;
@@ -62,7 +63,7 @@ public class Auf24<T> {
         Element current = first;
         while ( current != null )
         {
-            System.out.print( current.getContent().toString() );
+            System.out.print( current.getContent() == null ? null : current.getContent().toString() );
             if ( current != last )
             {
                 System.out.print(", ");

@@ -6,19 +6,22 @@ public class Auf8<T>
         int count = 0;
         Element current = first;
         while(current != null) {
+            Element succOfCurrent = current.succ;
             if (current.content == null) {
                 count += 1;
+                size -= 1;
                 if(current.pred == null) {
                     first = current.succ;
+                    first.disconnectPred();
                 }
-                if(current.succ == null) {
+                else if(current.succ == null) {
                     last = current.pred;
-                }
-                current = current.succ;
-                if(current != null) {
-                    current.connectAsPred(current.pred.pred);
+                    last.disconnectSucc();
+                } else {
+                    current.succ.connectAsPred(current.pred);
                 }
             }
+            current = succOfCurrent;
         }
         return count;
     }
@@ -61,7 +64,7 @@ public class Auf8<T>
         Element current = first;
         while ( current != null )
         {
-            System.out.print( current.getContent().toString() );
+            System.out.print( current.getContent() == null ? null : current.getContent().toString() );
             if ( current != last )
             {
                 System.out.print(", ");
