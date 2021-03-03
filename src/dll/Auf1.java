@@ -157,5 +157,8 @@ public class Auf1<T>
             pred = e;
         }
 
+        public void pack() {
+            Element<T> current = null;
+        }
     }
 }
